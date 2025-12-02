@@ -1,4 +1,4 @@
-
+<script>
         :root {
             --bg-primary: #f5f5f5;
             --bg-secondary: #ffffff;
@@ -414,3 +414,4 @@
             color: var(--text-secondary);
             margin-top: 10px;
         }
+</script>
