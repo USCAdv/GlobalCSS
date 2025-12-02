@@ -1,7 +1,7 @@
 // Footer HTML content
 const footerHTML = `
     <footer>
-        <p>&copy; 2024 Salesforce Marketing Cloud User Guide. All rights reserved.</p>
+        <p>&copy; 2025 University Advancement Salesforce Marketing Cloud User Guide. All rights reserved.</p>
         <p><a href="getting-started.html">Getting Started</a> | <a href="support.html">Support</a> | <a href="#top">Back to top</a></p>
     </footer>
 `;
