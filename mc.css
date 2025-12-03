@@ -305,23 +305,54 @@
             }
         }
         
-        .content-wrapper {
-            width: 100%;
-            padding-top: 5rem;
-            justify-self: center;
-        }
-        
-        @media (min-width: 1024px) {
-            .content-wrapper {
-                padding-top: 5rem;
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            .content-wrapper {
-                padding-top: 5rem;
-            }
-        }
+       /* ===================================
+   FIX FOR CONTENT STARTING TOO FAR DOWN
+   Add this to your mc.css file
+   =================================== */
+
+/* Remove excess top spacing on main containers */
+.page-container {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.main-content {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Reduce content wrapper padding */
+.content-wrapper {
+    width: 100%;
+    padding-top: 1rem;  /* Changed from 5rem */
+    justify-self: center;
+}
+
+@media (min-width: 640px) {
+    .content-wrapper {
+        padding-top: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-wrapper {
+        padding-top: 2rem;  /* Changed from 5rem */
+    }
+}
+
+@media (min-width: 1280px) {
+    .content-wrapper {
+        padding-top: 2rem;  /* Changed from 5rem */
+    }
+}
+
+/* Optional: Hide reading progress if you don't want it */
+/* Uncomment the lines below to remove it completely */
+/*
+.reading-progress {
+    display: none;
+}
+*/
         
         /* Article */
         .article {
