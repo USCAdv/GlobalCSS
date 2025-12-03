@@ -128,7 +128,7 @@ body > *:first-child {
 
 .nav-section-title {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.80rem;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.9);
     margin-bottom: 0.75rem;
