@@ -1,9 +1,18 @@
 // Navigation loader and handler
 (function() {
+    // Configure the navigation URL here
+    // You can set this as a global variable before loading this script
+    const NAV_URL = window.MC_NAV_URL || 'https://uscadv.github.io/GlobalCSS/sidebar-nav.html';
+    
     // Load the navigation HTML
     function loadNavigation() {
-        fetch('sidebar-nav.html')
-            .then(response => response.text())
+        fetch(NAV_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(html => {
                 // Insert navigation at the beginning of body
                 document.body.insertAdjacentHTML('afterbegin', html);
@@ -16,6 +25,7 @@
             })
             .catch(error => {
                 console.error('Error loading navigation:', error);
+                console.error('Attempted to load from:', NAV_URL);
             });
     }
     
