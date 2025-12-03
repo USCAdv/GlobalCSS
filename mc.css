@@ -1,4 +1,72 @@
    <style>
+   /* CRITICAL FIXES - Add these at the TOP of your mc.css file */
+
+/* Ensure no top spacing on body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove spacing from first body child (usually the nav gets inserted here) */
+body > *:first-child {
+    margin-top: 0;
+}
+
+/* Ensure mobile navigation elements don't create document flow */
+.mobile-menu-toggle,
+.mobile-nav,
+.mobile-nav-overlay {
+    position: fixed;
+}
+
+/* Ensure sidebar is properly positioned */
+.sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
+    max-width: 280px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 2rem 1rem 2rem 2rem;
+}
+
+/* Hide sidebar on mobile/tablet */
+@media (max-width: 1279px) {
+    .sidebar-nav {
+        display: none;
+    }
+}
+
+/* Adjust main content to account for fixed sidebar */
+@media (min-width: 1280px) {
+    .page-container {
+        margin-left: 280px; /* Same as sidebar max-width */
+    }
+}
+
+/* REMOVE ALL TOP PADDING from these elements */
+.page-container {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.main-content {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.content-wrapper {
+    width: 100%;
+    padding-top: 0.5rem;  /* Minimal spacing */
+    justify-self: center;
+}
+
+@media (min-width: 1024px) {
+    .content-wrapper {
+        padding-top: 1.5rem;  /* Still minimal */
+    }
+}
         /* Base fonts and colors */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
         
