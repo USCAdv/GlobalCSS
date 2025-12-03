@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
 
 :root {
---color-cobalt: #2563eb;
---color-cobalt-600: #2563eb;
+--color-cobalt: #990000;
+--color-cobalt-600: #990000;
 --color-black: #000;
 --color-gray-700: #374151;
 --color-gray-200: #e5e7eb;
