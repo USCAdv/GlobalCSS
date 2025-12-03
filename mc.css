@@ -19,16 +19,51 @@ body > *:first-child {
     position: fixed;
 }
 
-/* Ensure sidebar is properly positioned */
+/* ========================================
+   DEFINITIVE FIX FOR SIDEBAR BLOCKING CONTENT
+   Replace the sidebar-nav section in your mc.css with this
+   ======================================== */
+
+/* Mobile - Hide sidebar completely */
 .sidebar-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 20%;
-    max-width: 280px;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 2rem 1rem 2rem 2rem;
+    display: none;
+}
+
+/* Desktop - Fixed sidebar on left side */
+@media (min-width: 1280px) {
+    .sidebar-nav {
+        display: block;
+        position: fixed;  /* FIXED, not sticky! */
+        left: 0;
+        top: 0;
+        width: 260px;  /* Fixed width */
+        height: 100vh;
+        overflow-y: auto;
+        padding: 2rem 1.5rem;
+        background: rgba(245, 245, 245, 0.2);
+        z-index: 10;
+    }
+    
+    /* Add left margin to page container to make room for sidebar */
+    .page-container {
+        margin-left: 260px;  /* Same as sidebar width */
+    }
+    
+    /* Make sure main content doesn't try to use grid column 1 */
+    .main-content {
+        grid-column: auto;  /* Let it flow naturally */
+    }
+}
+
+/* Also ensure these don't have conflicting grid settings */
+@media (min-width: 1280px) {
+    .page-container {
+        display: block;  /* Change from grid to block */
+        max-width: 1400px;
+        margin-left: 260px;  /* Account for fixed sidebar */
+        margin-right: auto;
+        padding: 0 2rem;
+    }
 }
 
 /* Hide sidebar on mobile/tablet */
