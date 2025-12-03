@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
 
 :root {
-    --color-cobalt: #990000;
-    --color-cobalt-600: #990000;
+    --color-cobalt: #2563eb;
+    --color-cobalt-600: #2563eb;
     --color-black: #000;
     --color-black-50: rgba(0, 0, 0, 0.5);
     --color-black-60: rgba(0, 0, 0, 0.6);
@@ -79,10 +79,11 @@ body > *:first-child {
 @media (min-width: 1280px) {
     .page-container {
         display: block;
-        max-width: 1400px;
-        margin-left: 260px;  /* Space for fixed sidebar */
+        max-width: calc(1400px + 260px);
+        margin-left: auto;
         margin-right: auto;
-        padding: 0 2rem;
+        padding-left: 260px;
+        padding-right: 0;
     }
 }
 
@@ -128,11 +129,11 @@ body > *:first-child {
 
 .nav-section-title {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.80rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.4);
     margin-bottom: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .nav-links {
