@@ -131,9 +131,9 @@ body > *:first-child {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.4);
     margin-bottom: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .nav-links {
@@ -442,6 +442,7 @@ body > *:first-child {
     margin: 0 auto;
     font-size: 1.0625rem;
     line-height: 1.75;
+    text-align: left;
 }
 
 .prose h2 {
