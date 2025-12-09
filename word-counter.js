@@ -1,6 +1,6 @@
 function countWords() {
   // 1. target the element
-  const contentElement = document.getElementById('main-articl');
+  const contentElement = document.getElementById('main-article');
   const displayElement = document.getElementById('counter-display');
 
   // SAFETY CHECK: This ensures the code only runs if the elements actually exist
