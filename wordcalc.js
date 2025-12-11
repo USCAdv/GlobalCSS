@@ -1,39 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Find all links that need counting
-    const links = document.querySelectorAll('.count-me');
+    // 1. Target your specific link wrapper class
+    const chapters = document.querySelectorAll('.chapter-link-wrapper');
 
-    links.forEach(link => {
-        // 2. Go fetch the page content in the background
-        fetch(link.href)
+    chapters.forEach(chapterLink => {
+        // 2. Find the word count span INSIDE this specific link
+        const countSpan = chapterLink.querySelector('.chapter-wordcount');
+
+        // Safety check: if the span exists, set it to calculating
+        if (countSpan) {
+            countSpan.innerText = "Calculating...";
+        } else {
+            return; // Skip if no span found
+        }
+
+        // 3. Fetch the URL from the anchor's href
+        fetch(chapterLink.href)
             .then(response => {
-                // If the page loads successfully
                 if (response.ok) return response.text();
                 throw new Error('Page not found');
             })
             .then(html => {
-                // 3. Convert the text HTML into a virtual DOM document
+                // 4. Parse the HTML of the destination page
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
 
-                // 4. Find the main content on that fetched page
-                // IMPORTANT: This ID ('main-content') must match the ID used on your inner pages
+                // IMPORTANT: Ensure your destination pages have <div id="main-content"> around the text
                 const contentElement = doc.getElementById('main-article');
 
                 if (contentElement) {
-                    // 5. Calculate count (same logic as before)
                     const text = contentElement.innerText;
                     const count = text.trim().split(/\s+/).filter(w => w.length > 0).length;
 
-                    // 6. Find the span next to the link and update it
-                    const outputSpan = link.nextElementSibling;
-                    if (outputSpan) {
-                        outputSpan.innerText = `[${count} words]`;
-                    }
+                    // 5. Update your specific span class
+                    // Optional: You can add logic here to format "1200" as "1.2k" if you prefer
+                    countSpan.innerText = `${count} words`;
+                } else {
+                    console.warn(`Could not find #main-content in ${chapterLink.href}`);
+                    countSpan.innerText = "N/A";
                 }
             })
             .catch(error => {
-                console.error("Could not count words for " + link.href, error);
+                console.error(error);
+                countSpan.innerText = "Error";
             });
     });
 });
