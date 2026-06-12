@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-family: IBM Plex Mono', 'Courier New', monospace;
     line-height: 1.6;
     color: var(--color-black);
     background: rgba(245, 245, 245, 0.2);
